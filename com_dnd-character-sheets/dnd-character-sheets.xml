@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extention type="component" version="3.2.0" method="upgrade">
+	<name>D&amp;D Character Sheets Manager</name>
+	<creationDate>August 2016</creationDate>
+	<author>Greg Howlett</author>
+	<authorEmail>GregTHowlett@Gmail.com</authorEmail>
+	<authorURL>http://DwarfHolm.com</authorURL>
+	<copyright>All Rights Reserved</copyright>
+	<version>0.0.0</version>
+	<description>A component for managing character sheets.</description>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>dnd-character-sheets.php</filename>
+		<filename>controller.php</filename>
+		<folder>views</folder>
+	</files>
+	
+	<administration>
+		<menu link='index.php?option=com_dnd-character-sheets'>Character Sheets</menu>
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>dnd-character-sheets.php</filename>
+			<folder>sql</folder>
+		</files>
+	</administration>
+</extention>
