@@ -1,19 +1,17 @@
 <?php defined('_JEXEC') or die('Restricted access');
 /**
  * @package     Dwarfholm-DnD
- * @subpackage  com_dnd-character-sheets
+ * @subpackage  com_dndcharactersheets
  *
  * @copyright   Copyright (C) 2016 Dwarfholm.com. All rights reserved.
  */
+jimport('joomla.application.component.view');
 
-class HelloWorldViewHelloWorld extends JViewLegacy
+class DnDCharacterSheetsViewDnDCharacterSheets extends JViewLegacy
 {
 	function display($tpl = null)
 	{
-		// Assign data to the view
-		$this->msg = 'Hello World';
-
-		// Display the view
+		$this->msg = 'Character Sheet front end';
 		parent::display($tpl);
 	}
 }

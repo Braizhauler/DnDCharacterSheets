@@ -2,11 +2,12 @@
 
 /**
  * @package     Dwarfholm-DnD
- * @subpackage  com_dnd-character-sheets
+ * @subpackage  com_dndcharactersheets
  *
  * @copyright   Copyright (C) 2016 Dwarfholm.com. All rights reserved.
  */
+jimport('joomla.application.component.controller');
 
-class DnDCharacterSheets extends JControllerLegacy
+class DnDCharacterSheetsController extends JControllerLegacy
 {
 }
