@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DnDCharacterSheets" default="all" basedir=".">
+	<property name="dev"   value="../com_dndcharactersheets/"/>
+	
+	<property name="server" value="C:/xampp/htdocs" />
+	<property name="install"  value="${server}/tmp" />
+	<property name="front_end"  value="${server}/components/com_dndcharactersheets" />
+	<property name="back_end"  value="${server}/administrator/components/com_dndcharactersheets" />
+	
+    <fileset dir="${dev}" id="all_files">
+    	<include name="admin/*" />
+    	<include name="admin/sql/*" />
+    	<include name="admin/sql/updates/*" />
+    	<include name="admin/sql/updates/mysql/*" />
+    	<include name="site/*" />
+    	<include name="site/views/*" />
+    	<include name="site/views/default/*" />
+    	<include name="site/views/default/tmpl/*" />
+    	<include name="site/views/dndcharactersheet/*" />
+    	<include name="site/views/dndcharactersheet/tmpl/*" />
+        <include name="*.xml" />
+    </fileset>
+    
+    <fileset dir="${dev}" id="site">
+    	<include name="site/*" />
+    	<include name="site/views/*" />
+    	<include name="site/views/default/*" />
+    	<include name="site/views/default/tmpl/*" />
+    	<include name="site/views/dndcharactersheets/*" />
+    	<include name="site/views/dndcharactersheets/tmpl/*" />
+    </fileset>
+    
+    <fileset dir="${dev}" id="admin">
+    	<include name="admin/*" />
+    	<include name="admin/sql/*" />
+    	<include name="admin/sql/updates/*" />
+    	<include name="admin/sql/updates/mysql/*" />
+        <include name="*.xml" />
+    </fileset>
+    
+	<target name="copy_front_end" description="Copies files to test project.">
+		<echo message="Running build.xml. Copying files from ${dev} to ${front_end}..." />
+		<copy todir="${front_end}">
+			<fileset refid="site" />
+		</copy>
+	</target>
+	<target name="copy_back_end" description="Copies files to test project.">
+		<echo message="Running build.xml. Copying files from ${dev} to ${back_end}..." />
+		<copy todir="${back_end}">
+			<fileset refid="admin" />
+		</copy>
+	</target>
+	<target name="package_component">
+		<echo message="Running build.xml. Packaging ${dev} and moving to ${install}..." />
+		<copy todir="${install}">
+			<fileset refid="all_files" />
+		</copy>
+		<zip destfile="${install}/DnDCharacterSheets.zip" description="Archiving files.">
+
+			<fileset refid="all_files" />
+		</zip>
+	</target>
+	
+	
+	<target name="all" depends="copy_front_end,copy_back_end,package_component">
+	</target>
+</project>
