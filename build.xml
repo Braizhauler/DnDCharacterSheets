@@ -16,8 +16,8 @@
     	<include name="site/views/*" />
     	<include name="site/views/default/*" />
     	<include name="site/views/default/tmpl/*" />
-    	<include name="site/views/dndcharactersheet/*" />
-    	<include name="site/views/dndcharactersheet/tmpl/*" />
+    	<include name="site/views/dndcharactersheets/*" />
+    	<include name="site/views/dndcharactersheets/tmpl/*" />
         <include name="*.xml" />
     </fileset>
     

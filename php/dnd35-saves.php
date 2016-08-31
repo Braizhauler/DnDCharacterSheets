@@ -9,7 +9,7 @@ function outputSaves() {
 	echo "<fieldset id=\"saves\">\n";
 	outputSavesHeader();
 	foreach ($saves as $save) {
-		outputAnSave($save);
+		outputASave($save);
 	}
 	echo "</fieldset>\n";
 }
@@ -25,7 +25,7 @@ function outputSavesHeader() {
 	echo "<span>Temp</span>\n";
 	echo "</div>\n";
 }
-function outputAnSave($save) {
+function outputASave($save) {
 	echo "<div id=\"".$save["name"]."\" class=\"save\">";
 	echo "	<label id=\"".$save["name"]."-total-label\"><input id=\"".$save["name"]."-total\" class=\"short-number\" type=\"text\" disabled></label>\n";
 	echo "	<div id=\"".$save["name"]."\" class=\"save-name highlight\">".strtoupper($save["name"])."</div>\n";
