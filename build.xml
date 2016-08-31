@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="DnDCharacterSheets" default="all" basedir=".">
-	<property name="dev"   value="../com_dndcharactersheets/"/>
+	<property name="dev"   value="com_dndcharactersheets/"/>
 	
 	<property name="server" value="C:/xampp/htdocs" />
 	<property name="install"  value="${server}/tmp" />
@@ -21,21 +21,20 @@
         <include name="*.xml" />
     </fileset>
     
-    <fileset dir="${dev}" id="site">
-    	<include name="site/*" />
-    	<include name="site/views/*" />
-    	<include name="site/views/default/*" />
-    	<include name="site/views/default/tmpl/*" />
-    	<include name="site/views/dndcharactersheets/*" />
-    	<include name="site/views/dndcharactersheets/tmpl/*" />
+    <fileset dir="${dev}site/" id="site">
+    	<include name="*" />
+    	<include name="views/*" />
+    	<include name="views/default/*" />
+    	<include name="views/default/tmpl/*" />
+    	<include name="views/dndcharactersheets/*" />
+    	<include name="views/dndcharactersheets/tmpl/*" />
     </fileset>
     
-    <fileset dir="${dev}" id="admin">
-    	<include name="admin/*" />
-    	<include name="admin/sql/*" />
-    	<include name="admin/sql/updates/*" />
-    	<include name="admin/sql/updates/mysql/*" />
-        <include name="*.xml" />
+    <fileset dir="${dev}admin/" id="admin">
+    	<include name="*" />
+    	<include name="sql/*" />
+    	<include name="sql/updates/*" />
+    	<include name="sql/updates/mysql/*" />
     </fileset>
     
 	<target name="copy_front_end" description="Copies files to test project.">
