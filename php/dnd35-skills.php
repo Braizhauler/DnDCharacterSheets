@@ -1,6 +1,6 @@
 <?php
 	$skills = array(
-		array("name"=>"appraise", "ability"=>"intellegence", "trainedonly"=>false),
+		array("name"=>"appraise", "ability"=>"intellegence", "trainedonly"=>false), 
 		array("name"=>"balance", "ability"=>"dexterity", "trainedonly"=>false),
 		array("name"=>"bluff", "ability"=>"charisma", "trainedonly"=>false),
 		array("name"=>"climb", "ability"=>"strength", "trainedonly"=>false),

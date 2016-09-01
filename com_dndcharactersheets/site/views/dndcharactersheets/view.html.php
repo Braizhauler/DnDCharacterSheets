@@ -11,7 +11,12 @@ class DnDCharacterSheetsViewDnDCharacterSheets extends JViewLegacy
 {
 	function display($tpl = null)
 	{
-		$this->msg = 'Character Sheet front end';
+		$this->msg = $this->get('Title');
+		if (count($errors = $this->get('Errors')))
+		{
+			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
+			return false;
+		}
 		parent::display($tpl);
 	}
 }
