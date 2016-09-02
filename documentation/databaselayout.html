@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="databaselayout.css">
+	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js" integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo="   crossorigin="anonymous"></script>
+ <script>
+	$(document).ready(function() {
+		$(function() { $('.draggable').draggable(); });
+		
+		
+		$('.minimizable').dblclick(function(event) {
+			$(this).toggleClass( "minimized" );
+		});
+	});
+	
+ </script>
+</head>
+<body>
+<table class="draggable minimizable">
+<caption>#__dndcs_characters</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>character_id</td><td>int(13)</td><td>PK, AutoIncrement</td><td></td></tr>
+<tr><td>joomla_user_id</td><td>int(13)</td><td>FK(#__users)</td><td></td></tr>
+</tbody>
+</table>
+<br />
+<table class="draggable minimizable">
+<caption>#__dndcs_sheets</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>sheet_id</td><td>int(13)</td><td>PK, AutoIncrement</td><td></td></tr>
+<tr><td>character_id</td><td>int(13)</td><td>FK(#__dndcs_sheets)</td><td></td></tr>
+<tr><td>character_description_id</td><td>int(13)</td><td>FK(#__dndcs_character_descriptions)</td><td></td></tr>
+</tbody>
+</table>
+<br />
+<table class="draggable minimizable">
+<caption>#__dndcs_character_descriptions</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>character_description_id</td><td>int(13)</td><td>PK, AutoIncrement</td><td></td></tr>
+<tr><td>name</td><td>char(64)</td><td></td><td></td></tr>
+
+<tr><td>race</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>gender</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>height</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>weight</td><td>char(64)</td><td></td><td></td></tr>
+
+<tr><td>size</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>age</td><td>char(64)</td><td></td><td></td></tr>
+
+<tr><td>eye</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>hair</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>skin</td><td>char(64)</td><td></td><td></td></tr>
+
+<tr><td>alignment_good_evil</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>alignment_lawful_chaotic</td><td>char(64)</td><td></td><td></td></tr>
+
+<tr><td>deity</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>background</td><td>char(64)</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+</body>
+</html>
