@@ -18,6 +18,7 @@
     	<include name="site/views/default/tmpl/*" />
     	<include name="site/views/dndcharactersheets/*" />
     	<include name="site/views/dndcharactersheets/tmpl/*" />
+    	<include name="site/models/*" />
         <include name="*.xml" />
     </fileset>
     
@@ -28,6 +29,7 @@
     	<include name="views/default/tmpl/*" />
     	<include name="views/dndcharactersheets/*" />
     	<include name="views/dndcharactersheets/tmpl/*" />
+    	<include name="models/*" />
     </fileset>
     
     <fileset dir="${dev}admin/" id="admin">

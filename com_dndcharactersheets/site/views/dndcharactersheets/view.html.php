@@ -11,7 +11,9 @@ class DnDCharacterSheetsViewDnDCharacterSheets extends JViewLegacy
 {
 	function display($tpl = null)
 	{
-		$this->msg = $this->get('Title');
+		$this->msg = "Hello world\n";//$this->get('Msg');
+		$this->msg .= $this->get('Msg');
+		$this->msg .= "Line Added\n";
 		if (count($errors = $this->get('Errors')))
 		{
 			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');

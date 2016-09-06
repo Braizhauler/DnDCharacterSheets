@@ -2,8 +2,8 @@
 <html>
 <head>
  <link rel="stylesheet" href="databaselayout.css">
-	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js" integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo="   crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js" integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo=" crossorigin="anonymous"></script>
  <script>
 	$(document).ready(function() {
 		$(function() { $('.draggable').draggable(); });
@@ -17,8 +17,9 @@
  </script>
 </head>
 <body>
+
 <table class="draggable minimizable">
-<caption>#__dndcs_characters</caption>
+<caption>#__dndcs_character</caption>
 <thead>
 <tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
 </thead>
@@ -27,45 +28,215 @@
 <tr><td>joomla_user_id</td><td>int(13)</td><td>FK(#__users)</td><td></td></tr>
 </tbody>
 </table>
-<br />
+
+<!-- ***** Description ***** -->
 <table class="draggable minimizable">
-<caption>#__dndcs_sheets</caption>
+<caption>#__dndcs_description</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>description_id</td><td>int(13)</td><td>PK, AutoIncrement</td><td></td></tr>
+<tr><td>name</td><td>varchar(256)</td><td></td><td></td></tr>
+
+<tr><td>race</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>gender</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>height</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>weight</td><td>varchar(64)</td><td></td><td></td></tr>
+
+<tr><td>size</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>age</td><td>varchar(64)</td><td></td><td></td></tr>
+
+<tr><td>eye</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>hair</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>skin</td><td>varchar(64)</td><td></td><td></td></tr>
+
+<tr><td>alignment_good_evil</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>alignment_law_chaos</td><td>varchar(64)</td><td></td><td></td></tr>
+
+<tr><td>deity</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>background</td><td>varchar(64)</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+
+<table class="draggable minimizable">
+<caption>#__dndcs_sheet</caption>
 <thead>
 <tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
 </thead>
 <tbody>
 <tr><td>sheet_id</td><td>int(13)</td><td>PK, AutoIncrement</td><td></td></tr>
-<tr><td>character_id</td><td>int(13)</td><td>FK(#__dndcs_sheets)</td><td></td></tr>
-<tr><td>character_description_id</td><td>int(13)</td><td>FK(#__dndcs_character_descriptions)</td><td></td></tr>
+
+<tr><td>date_archived</td><td>DATETIME</td><td></td><td></td></tr>
+<tr><td>date_created</td><td>DATETIME</td><td></td><td></td></tr>
+<tr><td>date_modified</td><td>DATETIME</td><td></td><td></td></tr>
+<tr><td>modified_by</td><td>int(13)</td><td>FK(#__users)</td><td></td></tr>
+
+<tr><td>character_id</td><td>int(13)</td><td>FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>character_description_id</td><td>int(13)</td><td>FK(#__dndcs_description)</td><td></td></tr>
+
+<tr><td>hp_max</td><td>int(4)</td><td></td><td></td></tr>
+<tr><td>hp_current</td><td>int(4)</td><td></td><td></td></tr>
+<tr><td>non_lethal</td><td>int(4)</td><td></td><td></td></tr>
 </tbody>
 </table>
-<br />
+
 <table class="draggable minimizable">
-<caption>#__dndcs_character_descriptions</caption>
+<caption>#__dndcs_armor_class</caption>
 <thead>
 <tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
 </thead>
 <tbody>
-<tr><td>character_description_id</td><td>int(13)</td><td>PK, AutoIncrement</td><td></td></tr>
-<tr><td>name</td><td>char(64)</td><td></td><td></td></tr>
+<tr><td>sheet_id</td><td>int(13)</td><td>PK, FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>class_skill</td><td>bool</td><td></td><td></td></tr>
+<tr><td>size</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>natural_armor</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>deflection</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>misc</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>notes</td><td>text</td><td></td><td></td></tr>
+</tbody>
+</table>
 
-<tr><td>race</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>gender</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>height</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>weight</td><td>char(64)</td><td></td><td></td></tr>
 
-<tr><td>size</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>age</td><td>char(64)</td><td></td><td></td></tr>
+<!-- ***** Core Stats ***** -->
+<table class="draggable minimizable">
+<caption>#__dndcs_core_stat_list</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>stat_id</td><td>int(2)</td><td>PK, AutoIncrement</td><td></td></tr>
+<tr><td>stat_name</td><td>varchar(16)</td><td></td><td>Strength<br/>Dexterity</td></tr>
+<tr><td>stat_abbr</td><td>varchar(3)</td><td></td><td>STR<br />DEX</td></tr>
+</tbody>
+</table>
 
-<tr><td>eye</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>hair</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>skin</td><td>char(64)</td><td></td><td></td></tr>
+<table class="draggable minimizable">
+<caption>#__dndcs_core_stat</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>sheet_id</td><td>int(13)</td><td>PK FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>stat_id</td><td>int(2)</td><td>PK, FK(#__dndcs_core_stat_list)</td><td></td></tr>
+<tr><td>score</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>gear</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>temp</td><td>int(2)</td><td></td><td></td></tr>
+</tbody>
+</table>
 
-<tr><td>alignment_good_evil</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>alignment_lawful_chaotic</td><td>char(64)</td><td></td><td></td></tr>
+<!-- ***** Feats ***** -->
+<table class="draggable minimizable">
+<caption>#__dndcs_feat</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>feat_id</td><td>int(13)</td><td>PK</td><td></td></tr>
+<tr><td>sheet_id</td><td>int(13)</td><td>FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>class_skill</td><td>bool</td><td></td><td></td></tr>
+<tr><td>ranks</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>racial</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>synergy</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>misc</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>notes</td><td>text</td><td></td><td></td></tr>
+</tbody>
+</table>
+<!-- ***** Skills ***** -->
+<table class="draggable minimizable">
+<caption>#__dndcs_skill_list</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>skill_id</td><td>int(3)</td><td>PK, AutoIncrement</td><td></td></tr>
+<tr><td>skill_name</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>primary_ability</td><td>int(2)</td><td>FK(#__dndcs_core_stat_list)</td><td></td></tr>
+<tr><td>trained_only</td><td>bool</td><td></td><td></td></tr>
+<tr><td>shown_by_default</td><td>bool</td><td></td><td></td></tr>
+</tbody>
+</table>
 
-<tr><td>deity</td><td>char(64)</td><td></td><td></td></tr>
-<tr><td>background</td><td>char(64)</td><td></td><td></td></tr>
+<table class="draggable minimizable">
+<caption>#__dndcs_skill</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>sheet_id</td><td>int(13)</td><td>PK, FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>skill_id</td><td>int(3)</td><td>PK, FK(#__dndcs_skill_list)</td><td></td></tr>
+<tr><td>class_skill</td><td>bool</td><td></td><td></td></tr>
+<tr><td>ranks</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>racial</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>synergy</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>misc</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>notes</td><td>text</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<!-- ***** Gear ***** -->
+<table class="draggable minimizable">
+<caption>#__dndcs_defensive_gear</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>defensive_gear_id</td><td>int(13)</td><td>PK</td><td></td></tr>
+<tr><td>sheet_id</td><td>int(13)</td><td>FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>name</td><td>varchar(64)</td><td>PK</td><td></td></tr>
+<tr><td>worn</td><td>bool</td><td></td><td></td></tr>
+<tr><td>carried</td><td>bool</td><td></td><td></td></tr>
+<tr><td>type</td><td>varchar(8)</td><td></td><td></td></tr>
+<tr><td>ac_bonus</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>max_dex</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>check_penelty</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>spell_failure</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>weight</td><td>int(4)</td><td></td><td></td></tr>
+<tr><td>notes</td><td>text</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<table class="draggable minimizable">
+<caption>#__dndcs_weapon</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>weapon_id</td><td>int(13)</td><td>PK</td><td></td></tr>
+<tr><td>sheet_id</td><td>int(13)</td><td>FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>name</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>in_hand</td><td>bool</td><td></td><td></td></tr>
+<tr><td>carried</td><td>bool</td><td></td><td></td></tr>
+<tr><td>attack_bonus</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>damage</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>damage_type</td><td>varchar(8)</td><td></td><td></td></tr>
+<tr><td>critical_chance</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>critical_value</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>range</td><td>int(3)</td><td></td><td></td></tr>
+<tr><td>weight</td><td>int(4)</td><td></td><td></td></tr>
+<tr><td>ammunition</td><td>int(3)</td><td></td><td></td></tr>
+<tr><td>ammunition_weight</td><td>int(4)</td><td></td><td></td></tr>
+<tr><td>notes</td><td>text</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<table class="draggable minimizable">
+<caption>#__dndcs_possession</caption>
+<thead>
+<tr><th>column_name</th><th>data_type</th><th>other information</th><th>example</th></tr>
+</thead>
+<tbody>
+<tr><td>possession_id</td><td>int(13)</td><td>PK</td><td></td></tr>
+<tr><td>sheet_id</td><td>int(13)</td><td>FK(#__dndcs_sheet)</td><td></td></tr>
+<tr><td>name</td><td>varchar(64)</td><td></td><td></td></tr>
+<tr><td>carried</td><td>bool</td><td></td><td></td></tr>
+<tr><td>ac_bonus</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>max_dex</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>check_penelty</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>spell_failure</td><td>int(2)</td><td></td><td></td></tr>
+<tr><td>weight</td><td>int(4)</td><td></td><td></td></tr>
+<tr><td>notes</td><td>text</td><td></td><td></td></tr>
 </tbody>
 </table>
 

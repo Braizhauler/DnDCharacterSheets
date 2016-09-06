@@ -8,22 +8,22 @@
 class DnDCharacterSheetsModelDnDCharacterSheets extends JModelItem
 {
 	/**
-	 *  @var string title
+	 *  @var string message
 	 */
-	protected $title;
+	protected $message;
  
 	/**
 	 * Get the Title
      *
 	 * @return  string  The message to be displayed to the user
 	 */
-	public function getTitle()
+	public function getMsg()
 	{
-		if (!isset($this->title))
+		if (!isset($this->message))
 		{
-			$this->title = 'Dungeons & Dragons - 3.5';
+			$this->message = "Dungeons & Dragons - 3.5";
 		}
  
-		return $this->title;
+		return $this->message;
 	}
 }
