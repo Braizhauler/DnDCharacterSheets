@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
-class DnDCharacterSheetsModelCharacterSheetsSettings extends JModelList
+class DnDCharacterSheetsModelDnDCharacterSheets extends JModelList
 {
 	/**
 	 * Method to build an SQL query to load the list data.

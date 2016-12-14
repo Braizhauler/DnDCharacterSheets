@@ -32,7 +32,7 @@ defined('_JEXEC') or die('Restricted Access');
 		<tfoot>
 			<tr>
 				<td colspan="5">
-					<?php echo $this->pagination->getListFooter(); ?>
+					<?php /*echo $this->pagination->getListFooter();*/ ?>
 				</td>
 			</tr>
 		</tfoot>
@@ -51,7 +51,7 @@ defined('_JEXEC') or die('Restricted Access');
 							<?php echo $row->greeting; ?>
 						</td>
 						<td align="center">
-							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'charactersheetssettings.', true, 'cb'); ?>
+							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'dndcharactersheets.', true, 'cb'); ?>
 						</td>
 						<td align="center">
 							<?php echo $row->id; ?>
