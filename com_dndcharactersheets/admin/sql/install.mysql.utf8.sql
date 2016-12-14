@@ -71,7 +71,7 @@ INSERT IGNORE INTO `#__dndcs_core_stat_list` (`stat_id`,`stat_name`,`stat_abbr`)
 ( 1,'strength','STR'),
 ( 2,'dexterity','DEX'),
 ( 3,'constitution','CON'),
-( 4,'intelegence','INT'),
+( 4,'intelligence','INT'),
 ( 5,'wisdom','WIS'),
 ( 6,'charisma','CHA');
 

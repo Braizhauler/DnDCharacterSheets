@@ -1,11 +1,14 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_helloworld
+ * General Controller of DnDCharacterSheets component
  *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Dwarfholm-DnD
+ * @subpackage  com_dndcharactersheets
+ * @since       0.0.2
+ * 
+ * @copyright   Copyright (C) 2016 Dwarfholm.com. All rights reserved.
  */
+ 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
  
