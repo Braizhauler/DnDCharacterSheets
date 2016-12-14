@@ -6,7 +6,7 @@
 	<authorEmail>GregTHowlett@Gmail.com</authorEmail>
 	<authorURL>http://DwarfHolm.com</authorURL>
 	<copyright>All Rights Reserved</copyright>
-	<version>0.0.2</version>
+	<version>0.0.7</version>
 	<description>A component for managing character sheets.</description>
 	<install>
 		<sql>
@@ -35,9 +35,11 @@
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>dndcharactersheets.php</filename>
+			<filename>controller.php</filename>
 			<folder>sql</folder>
 			<folder>models</folder>
 			<folder>tables</folder>
+			<folder>views</folder>
 		</files>
 	</administration>
 </extension>
