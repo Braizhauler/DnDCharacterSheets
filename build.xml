@@ -9,6 +9,8 @@
 	
     <fileset dir="${dev}" id="all_files">
     	<include name="admin/*" />
+    	<include name="admin/models/*" />
+    	<include name="admin/tables/*" />
     	<include name="admin/sql/*" />
     	<include name="admin/sql/updates/*" />
     	<include name="admin/sql/updates/mysql/*" />
@@ -34,6 +36,8 @@
     
     <fileset dir="${dev}admin/" id="admin">
     	<include name="*" />
+    	<include name="models/*" />
+    	<include name="tables/*" />
     	<include name="sql/*" />
     	<include name="sql/updates/*" />
     	<include name="sql/updates/mysql/*" />

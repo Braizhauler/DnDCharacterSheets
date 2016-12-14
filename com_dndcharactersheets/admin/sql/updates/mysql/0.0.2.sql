@@ -1,6 +1,6 @@
-CREATE TABLE `#__dndcs_character` (
+CREATE TABLE IF NOT EXISTS `#__dndcs_character` (
 	`character_id`	INT(13)	NOT NULL AUTO_INCREMENT,
-	`joomla_user_id	INT(13) NOT NULL,
+	`joomla_user_id`	INT(13) NOT NULL,
 	PRIMARY KEY (`character_id`),
 	FOREIGN KEY (`joomla_user_id`)
 		REFERENCES `#__users`(`id`)
@@ -9,7 +9,28 @@ CREATE TABLE `#__dndcs_character` (
 	AUTO_INCREMENT =0
 	DEFAULT CHARSET =utf8;
 
-CREATE TABLE `#__dndcs_sheet` (
+CREATE TABLE IF NOT EXISTS `#__dndcs_description` (
+	`description_id`	INT(13) AUTO_INCREMENT,
+	`name`	VARCHAR(256),
+	`race`	VARCHAR(64),
+	`gender`	VARCHAR(64),
+	`height`	VARCHAR(64),
+	`weight`	VARCHAR(64),
+	`size`	VARCHAR(64),
+	`age`	VARCHAR(64),
+	`eye`	VARCHAR(64),
+	`hair`	VARCHAR(64),
+	`skin`	VARCHAR(64),
+	`alignment_good_evil`	VARCHAR(64),
+	`alignment_law_chaos`	VARCHAR(64),
+	`deity`	VARCHAR(64),
+	`background`	VARCHAR(64),
+	PRIMARY KEY (`description_id`)
+) 	ENGINE=INNODB
+	AUTO_INCREMENT =0
+	DEFAULT CHARSET =utf8;
+	
+CREATE TABLE IF NOT EXISTS `#__dndcs_sheet` (
 	`sheet_id`	INT(13)	NOT NULL AUTO_INCREMENT,
 	`date_archived` DATETIME NULL,
 	`date_created`	DATETIME NOT NULL,
@@ -25,7 +46,7 @@ CREATE TABLE `#__dndcs_sheet` (
 		REFERENCES `#__users`(`id`)
 		ON DELETE CASCADE,
 	FOREIGN KEY (`character_id`)
-		REFERENCES `#__dndcs_characters`(`character_id`)
+		REFERENCES `#__dndcs_character`(`character_id`)
 		ON DELETE CASCADE,
 	FOREIGN KEY (`character_id`)
 		REFERENCES `#__dndcs_description`(`description_id`)
@@ -34,28 +55,8 @@ CREATE TABLE `#__dndcs_sheet` (
 	AUTO_INCREMENT =0
 	DEFAULT CHARSET =utf8;
 
-CREATE TABLE `#__dndcs_description` (
-	description_id	INT(13) AUTO_INCREMENT,
-	name	VARCHAR(256),
-	race	VARCHAR(64),
-	gender	VARCHAR(64),
-	height	VARCHAR(64),
-	weight	VARCHAR(64),
-	size	VARCHAR(64),
-	age		VARCHAR(64),
-	eye		VARCHAR(64),
-	hair	VARCHAR(64),
-	skin	VARCHAR(64),
-	alignment_good_evil	VARCHAR(64),
-	alignment_law_chaos	VARCHAR(64),
-	deity	VARCHAR(64),
-	background	VARCHAR(64),
-	PRIMARY KEY (`description_id`)
-) 	ENGINE=INNODB
-	AUTO_INCREMENT =0
-	DEFAULT CHARSET =utf8;
-
-CREATE TABLE `#__dndcs_core_stat_list` (
+DROP TABLE IF EXISTS `#__dndcs_core_stat_list`;
+CREATE TABLE IF NOT EXISTS `#__dndcs_core_stat_list` (
 	stat_id		INT(2)  AUTO_INCREMENT NOT NULL,
 	stat_name	VARCHAR(16) NOT NULL,
 	stat_abbr	VARCHAR(3) NOT NULL,
@@ -64,7 +65,7 @@ CREATE TABLE `#__dndcs_core_stat_list` (
 	AUTO_INCREMENT =0
 	DEFAULT CHARSET =utf8;
 
-INSERT INTO `#__dndcs_core_stat_list` (`stat_id`,`stat_name`,`stat_abbr`) VALUES
+INSERT IGNORE INTO `#__dndcs_core_stat_list` (`stat_id`,`stat_name`,`stat_abbr`) VALUES
 (-1,'none','NO'),
 ( 1,'strength','STR'),
 ( 2,'dexterity','DEX'),
@@ -73,7 +74,7 @@ INSERT INTO `#__dndcs_core_stat_list` (`stat_id`,`stat_name`,`stat_abbr`) VALUES
 ( 5,'wisdom','WIS'),
 ( 6,'charisma','CHA');
 
-CREATE TABLE `#__dndcs_core_stat` (
+CREATE TABLE IF NOT EXISTS `#__dndcs_core_stat` (
 	sheet_id	INT(13),
 	stat_id		INT(2),
 	score		INT(2),
@@ -84,12 +85,13 @@ CREATE TABLE `#__dndcs_core_stat` (
 		REFERENCES `#__dndcs_sheet`(`sheet_id`)
 		ON DELETE CASCADE,
 	FOREIGN KEY (`stat_id`)
-		REFERENCES `#__dndcs_core_stat_list`(`sheet_id`)
+		REFERENCES `#__dndcs_core_stat_list`(`stat_id`)
 		ON DELETE CASCADE
 ) 	ENGINE=INNODB
 	DEFAULT CHARSET =utf8;
 
-CREATE TABLE `#__dndcs_skill_list` (
+DROP TABLE IF EXISTS `#__dndcs_skill_list`;
+CREATE TABLE IF NOT EXISTS `#__dndcs_skill_list` (
 	skill_id		INT(3)  AUTO_INCREMENT NOT NULL,
 	skill_name	VARCHAR(64),
 	primary_ability	INT(2),
@@ -103,7 +105,7 @@ CREATE TABLE `#__dndcs_skill_list` (
 	AUTO_INCREMENT =600
 	DEFAULT CHARSET =utf8;
 
-INSERT INTO `#__dndcs_skill_list` (`skill_id`,`skill_name`,`primary_ability`,`trained_only`,`shown_by_default`) VALUES
+INSERT IGNORE INTO `#__dndcs_skill_list` (`skill_id`,`skill_name`,`primary_ability`,`trained_only`,`shown_by_default`) VALUES
 (101,'appraise',4,false,true), 
 (102,'balance',2,false,true),
 (103,'bluff',6,false,true),
@@ -166,7 +168,7 @@ INSERT INTO `#__dndcs_skill_list` (`skill_id`,`skill_name`,`primary_ability`,`tr
 
 (501,'profession()',5,true,false);
 
-CREATE TABLE `#__dndcs_skill` (
+CREATE TABLE IF NOT EXISTS `#__dndcs_skill` (
 	sheet_id	INT(13) NOT NULL,
 	skill_id	INT(3) NOT NULL,
 	class_skill	BOOLEAN,
