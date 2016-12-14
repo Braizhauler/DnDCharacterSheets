@@ -32,7 +32,7 @@ defined('_JEXEC') or die('Restricted Access');
 		<tfoot>
 			<tr>
 				<td colspan="5">
-					<?php /*echo $this->pagination->getListFooter();*/ ?>
+					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
 		</tfoot>
