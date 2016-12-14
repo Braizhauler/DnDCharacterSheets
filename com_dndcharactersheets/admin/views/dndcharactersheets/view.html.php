@@ -16,7 +16,7 @@
  */
 jimport('joomla.application.component.view');
 
-class DnDCharacterSheetsViewCharacterSheetsSettings extends JViewLegacy
+class DnDCharacterSheetsViewDnDCharacterSheets extends JViewLegacy
 {
 	/**
 	 * Display the Character Sheet Settings view

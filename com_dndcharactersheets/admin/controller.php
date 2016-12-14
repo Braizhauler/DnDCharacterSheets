@@ -16,5 +16,5 @@ class DnDCharacterSheetsController extends JControllerLegacy
 	 * @var string
 	 * @since 0.0.2
 	 */
-	protected $default_view = 'charactersheetssettings';
+	protected $default_view = 'dndcharactersheets';
 }
