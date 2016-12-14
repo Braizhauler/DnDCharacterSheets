@@ -29,7 +29,8 @@ class DnDCharacterSheetsModelDnDCharacterSheets extends JModelList
  
 		// Create the base select statement.
 		$query->select('*')
-                ->from($db->quoteName('#__helloworld'));
+                /*->from($db->quoteName('#__helloworld'));*/
+                ->from($db->quoteName('#__dndcs_skill_list'));
  
 		return $query;
 	}

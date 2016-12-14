@@ -10,22 +10,22 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 ?>
-<form action="index.php?option=com_dndcharactersheets&view=charactersheetssettings" method="post" id="adminForm" name="adminForm">
+<form action="index.php?option=com_dndcharactersheets&view=dndcharactersheets" method="post" id="adminForm" name="adminForm">
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
-			<th width="1%"><?php echo JText::_('COM_HELLOWORLD_NUM'); ?></th>
+			<th width="1%"><?php echo JText::_('COM_DND_CHARACTER_SHEETS_NUM'); ?></th>
 			<th width="2%">
 				<?php echo JHtml::_('grid.checkall'); ?>
 			</th>
 			<th width="90%">
-				<?php echo JText::_('COM_HELLOWORLD_HELLOWORLDS_NAME') ;?>
+				<?php echo JText::_('COM_DND_CHARACTER_SHEETS_DND_CHARACTER_SHEETS_NAME') ;?>
 			</th>
 			<th width="5%">
-				<?php echo JText::_('COM_HELLOWORLD_PUBLISHED'); ?>
+				<?php echo JText::_('COM_DND_CHARACTER_SHEETS_SHOWN_BY_DEFAULT'); ?>
 			</th>
 			<th width="2%">
-				<?php echo JText::_('COM_HELLOWORLD_ID'); ?>
+				<?php echo JText::_('COM_DND_CHARACTER_SHEETS_ID'); ?>
 			</th>
 		</tr>
 		</thead>
@@ -45,16 +45,16 @@ defined('_JEXEC') or die('Restricted Access');
 							<?php echo $this->pagination->getRowOffset($i); ?>
 						</td>
 						<td>
-							<?php echo JHtml::_('grid.id', $i, $row->id); ?>
+							<?php echo JHtml::_('grid.id', $i, $row->skill_id); ?>
 						</td>
 						<td>
-							<?php echo $row->greeting; ?>
+							<?php echo $row->skill_name; ?>
 						</td>
 						<td align="center">
-							<?php echo JHtml::_('jgrid.published', $row->published, $i, 'dndcharactersheets.', true, 'cb'); ?>
+							<?php echo JHtml::_('jgrid.published', $row->shown_by_default, $i, 'dndcharactersheets.', true, 'cb'); ?>
 						</td>
 						<td align="center">
-							<?php echo $row->id; ?>
+							<?php echo $row->skill_id; ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

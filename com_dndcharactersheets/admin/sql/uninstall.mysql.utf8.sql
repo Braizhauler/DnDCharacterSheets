@@ -9,7 +9,7 @@ SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0;
 
 
 
-DROP TABLE IF EXISTS `#__helloworld`;
+/*DROP TABLE IF EXISTS `#__helloworld`;*/
 
 DROP TABLE IF EXISTS `#__dndcs_character`;
 DROP TABLE IF EXISTS `#__dndcs_sheet`;

@@ -13,4 +13,4 @@ $controller->execute(JFactory::getApplication()->input->get('task'));
 
 $controller->redirect();
 
-echo "Admin";
+echo "\n&copy; 2016 DwarfHolm.com";
