@@ -14,6 +14,9 @@
     	<include name="admin/sql/*" />
     	<include name="admin/sql/updates/*" />
     	<include name="admin/sql/updates/mysql/*" />
+    	<include name="admin/views/*" />
+    	<include name="admin/views/dndcharactersheets/*" />
+    	<include name="admin/views/dndcharactersheets/tmpl/*" />
     	<include name="site/*" />
     	<include name="site/views/*" />
     	<include name="site/views/default/*" />
@@ -41,6 +44,9 @@
     	<include name="sql/*" />
     	<include name="sql/updates/*" />
     	<include name="sql/updates/mysql/*" />
+    	<include name="views/*" />
+    	<include name="views/dndcharactersheets/*" />
+    	<include name="views/dndcharactersheets/tmpl/*" />
     </fileset>
     
 	<target name="copy_front_end" description="Copies files to test project.">
